@@ -170,16 +170,16 @@ export default function AdminCatalogsPage() {
     <div className="mx-auto max-w-5xl space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight text-[var(--foreground)] sm:text-3xl">
+          <h1 className="text-2xl font-bold tracking-tight text-[hsl(var(--foreground))] sm:text-3xl">
             Catalogs
           </h1>
-          <p className="mt-1 text-sm text-[var(--muted-foreground)]">
+          <p className="mt-1 text-sm text-[hsl(var(--muted-foreground))]">
             จัดการแคตตาล็อกและลำดับการแสดงผล
           </p>
         </div>
         <button
           onClick={openCreateForm}
-          className="inline-flex items-center gap-2 rounded-lg bg-[var(--primary)] px-4 py-2.5 text-sm font-semibold text-[var(--primary-foreground)] transition-opacity hover:opacity-90"
+          className="inline-flex items-center gap-2 rounded-lg bg-[hsl(var(--primary))] px-4 py-2.5 text-sm font-semibold text-[hsl(var(--primary-foreground))] transition-all hover:bg-primary/90"
         >
           <Plus className="h-4 w-4" />
           สร้างใหม่
@@ -199,14 +199,14 @@ export default function AdminCatalogsPage() {
       ) : null}
 
       {isFormOpen ? (
-        <div className="rounded-xl border border-[var(--border)] bg-[var(--card)] p-5">
+        <div className="rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-5">
           <div className="mb-4 flex items-center justify-between">
-            <h2 className="text-base font-semibold text-[var(--foreground)]">
+            <h2 className="text-base font-semibold text-[hsl(var(--foreground))]">
               {editingCatalog ? "แก้ไข Catalog" : "สร้าง Catalog ใหม่"}
             </h2>
             <button
               onClick={closeForm}
-              className="rounded-lg p-1 text-[var(--muted-foreground)] transition-colors hover:bg-[var(--muted)] hover:text-[var(--foreground)]"
+              className="rounded-lg p-1 text-[hsl(var(--muted-foreground))] transition-colors hover:bg-[hsl(var(--muted))] hover:text-[hsl(var(--foreground))]"
             >
               <X className="h-4 w-4" />
             </button>
@@ -216,7 +216,7 @@ export default function AdminCatalogsPage() {
               <div>
                 <label
                   htmlFor="catalogName"
-                  className="block text-sm font-medium text-[var(--foreground)]"
+                  className="block text-sm font-medium text-[hsl(var(--foreground))]"
                 >
                   ชื่อ Catalog <span className="text-red-400">*</span>
                 </label>
@@ -226,13 +226,13 @@ export default function AdminCatalogsPage() {
                   value={formName}
                   onChange={(e) => setFormName(e.target.value)}
                   placeholder="เช่น ภาพบุคคล"
-                  className="mt-1 w-full rounded-lg border border-[var(--border)] bg-[var(--background)] px-4 py-2.5 text-sm text-[var(--foreground)] placeholder:text-[var(--muted-foreground)] focus:border-[var(--foreground)] focus:outline-none focus:ring-1 focus:ring-[var(--foreground)]"
+                  className="mt-1 w-full rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--background))] px-4 py-2.5 text-sm text-[hsl(var(--foreground))] placeholder:text-[hsl(var(--muted-foreground))] focus:border-[hsl(var(--foreground))] focus:outline-none focus:ring-1 focus:ring-[hsl(var(--foreground))]"
                 />
               </div>
               <div>
                 <label
                   htmlFor="catalogSortOrder"
-                  className="block text-sm font-medium text-[var(--foreground)]"
+                  className="block text-sm font-medium text-[hsl(var(--foreground))]"
                 >
                   ลำดับ
                 </label>
@@ -241,14 +241,14 @@ export default function AdminCatalogsPage() {
                   type="number"
                   value={formSortOrder}
                   onChange={(e) => setFormSortOrder(Number(e.target.value))}
-                  className="mt-1 w-full rounded-lg border border-[var(--border)] bg-[var(--background)] px-4 py-2.5 text-sm text-[var(--foreground)] placeholder:text-[var(--muted-foreground)] focus:border-[var(--foreground)] focus:outline-none focus:ring-1 focus:ring-[var(--foreground)]"
+                  className="mt-1 w-full rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--background))] px-4 py-2.5 text-sm text-[hsl(var(--foreground))] placeholder:text-[hsl(var(--muted-foreground))] focus:border-[hsl(var(--foreground))] focus:outline-none focus:ring-1 focus:ring-[hsl(var(--foreground))]"
                 />
               </div>
             </div>
             <div>
               <label
                 htmlFor="catalogDescription"
-                className="block text-sm font-medium text-[var(--foreground)]"
+                className="block text-sm font-medium text-[hsl(var(--foreground))]"
               >
                 รายละเอียด
               </label>
@@ -258,21 +258,21 @@ export default function AdminCatalogsPage() {
                 onChange={(e) => setFormDescription(e.target.value)}
                 placeholder="รายละเอียดเพิ่มเติม (ไม่บังคับ)"
                 rows={3}
-                className="mt-1 w-full rounded-lg border border-[var(--border)] bg-[var(--background)] px-4 py-2.5 text-sm text-[var(--foreground)] placeholder:text-[var(--muted-foreground)] focus:border-[var(--foreground)] focus:outline-none focus:ring-1 focus:ring-[var(--foreground)]"
+                className="mt-1 w-full rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--background))] px-4 py-2.5 text-sm text-[hsl(var(--foreground))] placeholder:text-[hsl(var(--muted-foreground))] focus:border-[hsl(var(--foreground))] focus:outline-none focus:ring-1 focus:ring-[hsl(var(--foreground))]"
               />
             </div>
             <div className="flex justify-end gap-3">
               <button
                 type="button"
                 onClick={closeForm}
-                className="rounded-lg border border-[var(--border)] px-4 py-2 text-sm font-medium text-[var(--foreground)] transition-colors hover:bg-[var(--muted)]"
+                className="rounded-lg border border-[hsl(var(--border))] px-4 py-2 text-sm font-medium text-[hsl(var(--foreground))] transition-colors hover:bg-[hsl(var(--muted))]"
               >
                 ยกเลิก
               </button>
               <button
                 type="submit"
                 disabled={saving}
-                className="inline-flex items-center gap-2 rounded-lg bg-[var(--primary)] px-4 py-2 text-sm font-semibold text-[var(--primary-foreground)] transition-opacity hover:opacity-90 disabled:opacity-50"
+                className="inline-flex items-center gap-2 rounded-lg bg-[hsl(var(--primary))] px-4 py-2 text-sm font-semibold text-[hsl(var(--primary-foreground))] transition-all hover:bg-primary/90 disabled:opacity-50"
               >
                 {saving ? (
                   <Loader2 className="h-4 w-4 animate-spin" />
@@ -288,19 +288,19 @@ export default function AdminCatalogsPage() {
 
       {loading ? (
         <div className="flex items-center justify-center py-12">
-          <Loader2 className="h-8 w-8 animate-spin text-[var(--muted-foreground)]" />
+          <Loader2 className="h-8 w-8 animate-spin text-[hsl(var(--muted-foreground))]" />
         </div>
       ) : catalogs.length === 0 ? (
-        <div className="rounded-xl border border-dashed border-[var(--border)] bg-[var(--card)] p-12 text-center">
-          <FolderOpen className="mx-auto h-10 w-10 text-[var(--muted-foreground)]" />
-          <p className="mt-4 text-[var(--muted-foreground)]">
+        <div className="rounded-xl border border-dashed border-[hsl(var(--border))] bg-[hsl(var(--card))] p-12 text-center">
+          <FolderOpen className="mx-auto h-10 w-10 text-[hsl(var(--muted-foreground))]" />
+          <p className="mt-4 text-[hsl(var(--muted-foreground))]">
             ยังไม่มี Catalog กด &quot;สร้างใหม่&quot; เพื่อเริ่มต้น
           </p>
         </div>
       ) : (
-        <div className="overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--card)]">
+        <div className="overflow-hidden rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))]">
           <table className="w-full text-left text-sm">
-            <thead className="border-b border-[var(--border)] bg-[var(--muted)] text-[var(--muted-foreground)]">
+            <thead className="border-b border-[hsl(var(--border))] bg-[hsl(var(--muted))] text-[hsl(var(--muted-foreground))]">
               <tr>
                 <th className="px-4 py-3 font-medium">ลำดับ</th>
                 <th className="px-4 py-3 font-medium">ชื่อ</th>
@@ -309,9 +309,9 @@ export default function AdminCatalogsPage() {
                 <th className="px-4 py-3 font-medium text-right">จัดการ</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[var(--border)]">
+            <tbody className="divide-y divide-[hsl(var(--border))]">
               {catalogs.map((catalog) => (
-                <tr key={catalog.id} className="hover:bg-[var(--muted)]/50">
+                <tr key={catalog.id} className="hover:bg-[hsl(var(--muted))]/50">
                   <td className="px-4 py-3">
                     <input
                       type="number"
@@ -319,23 +319,23 @@ export default function AdminCatalogsPage() {
                       onBlur={(e) =>
                         handleUpdateSortOrder(catalog, Number(e.target.value))
                       }
-                      className="w-20 rounded-lg border border-[var(--border)] bg-[var(--background)] px-2 py-1 text-sm text-[var(--foreground)] focus:border-[var(--foreground)] focus:outline-none"
+                      className="w-20 rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--background))] px-2 py-1 text-sm text-[hsl(var(--foreground))] focus:border-[hsl(var(--foreground))] focus:outline-none"
                     />
                   </td>
-                  <td className="px-4 py-3 font-medium text-[var(--foreground)]">
+                  <td className="px-4 py-3 font-medium text-[hsl(var(--foreground))]">
                     {catalog.name}
                   </td>
-                  <td className="max-w-xs truncate px-4 py-3 text-[var(--muted-foreground)]">
+                  <td className="max-w-xs truncate px-4 py-3 text-[hsl(var(--muted-foreground))]">
                     {catalog.description || "-"}
                   </td>
-                  <td className="px-4 py-3 text-[var(--muted-foreground)]">
+                  <td className="px-4 py-3 text-[hsl(var(--muted-foreground))]">
                     {catalog._count.images}
                   </td>
                   <td className="px-4 py-3 text-right">
                     <div className="flex items-center justify-end gap-2">
                       <button
                         onClick={() => openEditForm(catalog)}
-                        className="rounded-lg p-2 text-[var(--muted-foreground)] transition-colors hover:bg-[var(--muted)] hover:text-[var(--foreground)]"
+                        className="rounded-lg p-2 text-[hsl(var(--muted-foreground))] transition-colors hover:bg-[hsl(var(--muted))] hover:text-[hsl(var(--foreground))]"
                         title="แก้ไข"
                       >
                         <Pencil className="h-4 w-4" />
@@ -358,13 +358,13 @@ export default function AdminCatalogsPage() {
 
       {deleteTarget ? (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
-          <div className="w-full max-w-sm rounded-xl border border-[var(--border)] bg-[var(--card)] p-6">
-            <h3 className="text-lg font-semibold text-[var(--foreground)]">
+          <div className="w-full max-w-sm rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-6">
+            <h3 className="text-lg font-semibold text-[hsl(var(--foreground))]">
               ยืนยันการลบ
             </h3>
-            <p className="mt-2 text-sm text-[var(--muted-foreground)]">
+            <p className="mt-2 text-sm text-[hsl(var(--muted-foreground))]">
               คุณแน่ใจหรือไม่ว่าต้องการลบ Catalog{" "}
-              <span className="font-medium text-[var(--foreground)]">
+              <span className="font-medium text-[hsl(var(--foreground))]">
                 {deleteTarget.name}
               </span>
               ? รูปภาพทั้งหมดใน Catalog นี้จะถูกลบไปด้วย
@@ -372,14 +372,14 @@ export default function AdminCatalogsPage() {
             <div className="mt-5 flex justify-end gap-3">
               <button
                 onClick={() => setDeleteTarget(null)}
-                className="rounded-lg border border-[var(--border)] px-4 py-2 text-sm font-medium text-[var(--foreground)] transition-colors hover:bg-[var(--muted)]"
+                className="rounded-lg border border-[hsl(var(--border))] px-4 py-2 text-sm font-medium text-[hsl(var(--foreground))] transition-colors hover:bg-[hsl(var(--muted))]"
               >
                 ยกเลิก
               </button>
               <button
                 onClick={() => handleDelete(deleteTarget)}
                 disabled={deleting}
-                className="inline-flex items-center gap-2 rounded-lg bg-red-500 px-4 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-90 disabled:opacity-50"
+                className="inline-flex items-center gap-2 rounded-lg bg-red-500 px-4 py-2 text-sm font-semibold text-white transition-all hover:bg-red-500/90 disabled:opacity-50"
               >
                 {deleting ? (
                   <Loader2 className="h-4 w-4 animate-spin" />

@@ -172,10 +172,10 @@ export default function AdminImagesPage() {
     <div className="mx-auto max-w-6xl space-y-6">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight text-[var(--foreground)] sm:text-3xl">
+          <h1 className="text-2xl font-bold tracking-tight text-[hsl(var(--foreground))] sm:text-3xl">
             Images
           </h1>
-          <p className="mt-1 text-sm text-[var(--muted-foreground)]">
+          <p className="mt-1 text-sm text-[hsl(var(--muted-foreground))]">
             จัดการรูปภาพทั้งหมด
           </p>
         </div>
@@ -193,12 +193,12 @@ export default function AdminImagesPage() {
         </div>
       ) : null}
 
-      <div className="rounded-xl border border-[var(--border)] bg-[var(--card)] p-4">
+      <div className="rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-4">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end">
           <div className="flex-1">
             <label
               htmlFor="filterCatalog"
-              className="block text-sm font-medium text-[var(--foreground)]"
+              className="block text-sm font-medium text-[hsl(var(--foreground))]"
             >
               กรองตาม Catalog
             </label>
@@ -206,7 +206,7 @@ export default function AdminImagesPage() {
               id="filterCatalog"
               value={selectedCatalog}
               onChange={(e) => setSelectedCatalog(e.target.value)}
-              className="mt-1 w-full rounded-lg border border-[var(--border)] bg-[var(--background)] px-4 py-2.5 text-sm text-[var(--foreground)] focus:border-[var(--foreground)] focus:outline-none focus:ring-1 focus:ring-[var(--foreground)]"
+              className="mt-1 w-full rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--background))] px-4 py-2.5 text-sm text-[hsl(var(--foreground))] focus:border-[hsl(var(--foreground))] focus:outline-none focus:ring-1 focus:ring-[hsl(var(--foreground))]"
             >
               <option value="">ทั้งหมด</option>
               {catalogs.map((catalog) => (
@@ -220,7 +220,7 @@ export default function AdminImagesPage() {
           <div className="flex-1">
             <label
               htmlFor="targetCatalog"
-              className="block text-sm font-medium text-[var(--foreground)]"
+              className="block text-sm font-medium text-[hsl(var(--foreground))]"
             >
               Catalog เป้าหมาย (สำหรับย้าย)
             </label>
@@ -228,7 +228,7 @@ export default function AdminImagesPage() {
               id="targetCatalog"
               value={targetCatalogId}
               onChange={(e) => setTargetCatalogId(e.target.value)}
-              className="mt-1 w-full rounded-lg border border-[var(--border)] bg-[var(--background)] px-4 py-2.5 text-sm text-[var(--foreground)] focus:border-[var(--foreground)] focus:outline-none focus:ring-1 focus:ring-[var(--foreground)]"
+              className="mt-1 w-full rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--background))] px-4 py-2.5 text-sm text-[hsl(var(--foreground))] focus:border-[hsl(var(--foreground))] focus:outline-none focus:ring-1 focus:ring-[hsl(var(--foreground))]"
             >
               <option value="">เลือก Catalog</option>
               {catalogs.map((catalog) => (
@@ -243,7 +243,7 @@ export default function AdminImagesPage() {
             <button
               onClick={handleMove}
               disabled={processing || selectedImageIds.size === 0}
-              className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-[var(--primary)] px-4 py-2.5 text-sm font-semibold text-[var(--primary-foreground)] transition-opacity hover:opacity-90 disabled:opacity-50 sm:flex-none"
+              className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-[hsl(var(--primary))] px-4 py-2.5 text-sm font-semibold text-[hsl(var(--primary-foreground))] transition-all hover:bg-primary/90 disabled:opacity-50 sm:flex-none"
             >
               <MoveRight className="h-4 w-4" />
               ย้าย
@@ -251,7 +251,7 @@ export default function AdminImagesPage() {
             <button
               onClick={() => setShowDeleteConfirm(true)}
               disabled={processing || selectedImageIds.size === 0}
-              className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-red-500 px-4 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90 disabled:opacity-50 sm:flex-none"
+              className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-red-500 px-4 py-2.5 text-sm font-semibold text-white transition-all hover:bg-red-500/90 disabled:opacity-50 sm:flex-none"
             >
               <Trash2 className="h-4 w-4" />
               ลบ
@@ -261,12 +261,12 @@ export default function AdminImagesPage() {
       </div>
 
       <div className="flex items-center justify-between">
-        <p className="text-sm text-[var(--muted-foreground)]">
+        <p className="text-sm text-[hsl(var(--muted-foreground))]">
           เลือก {selectedImageIds.size} รูป จาก {images.length} รูป
         </p>
         <button
           onClick={toggleSelectAll}
-          className="inline-flex items-center gap-2 text-sm font-medium text-[var(--foreground)] transition-colors hover:text-[var(--muted-foreground)]"
+          className="inline-flex items-center gap-2 text-sm font-medium text-[hsl(var(--foreground))] transition-colors hover:text-[hsl(var(--muted-foreground))]"
         >
           {selectedImageIds.size === images.length && images.length > 0 ? (
             <CheckSquare className="h-4 w-4" />
@@ -281,12 +281,12 @@ export default function AdminImagesPage() {
 
       {loading ? (
         <div className="flex items-center justify-center py-12">
-          <Loader2 className="h-8 w-8 animate-spin text-[var(--muted-foreground)]" />
+          <Loader2 className="h-8 w-8 animate-spin text-[hsl(var(--muted-foreground))]" />
         </div>
       ) : images.length === 0 ? (
-        <div className="rounded-xl border border-dashed border-[var(--border)] bg-[var(--card)] p-12 text-center">
-          <ImageIcon className="mx-auto h-10 w-10 text-[var(--muted-foreground)]" />
-          <p className="mt-4 text-[var(--muted-foreground)]">
+        <div className="rounded-xl border border-dashed border-[hsl(var(--border))] bg-[hsl(var(--card))] p-12 text-center">
+          <ImageIcon className="mx-auto h-10 w-10 text-[hsl(var(--muted-foreground))]" />
+          <p className="mt-4 text-[hsl(var(--muted-foreground))]">
             ไม่พบรูปภาพใน Catalog นี้
           </p>
         </div>
@@ -298,10 +298,10 @@ export default function AdminImagesPage() {
               <div
                 key={image.id}
                 onClick={() => toggleImageSelection(image.id)}
-                className={`group relative cursor-pointer overflow-hidden rounded-lg border bg-[var(--card)] transition-colors ${
+                className={`group relative cursor-pointer overflow-hidden rounded-lg border bg-[hsl(var(--card))] transition-colors ${
                   isSelected
-                    ? "border-[var(--foreground)] ring-2 ring-[var(--foreground)] ring-offset-2 ring-offset-[var(--background)]"
-                    : "border-[var(--border)] hover:border-[var(--muted-foreground)]"
+                    ? "border-[hsl(var(--foreground))] ring-2 ring-[hsl(var(--foreground))] ring-offset-2 ring-offset-[hsl(var(--background))]"
+                    : "border-[hsl(var(--border))] hover:border-[hsl(var(--muted-foreground))]"
                 }`}
               >
                 <div className="aspect-square">
@@ -316,8 +316,8 @@ export default function AdminImagesPage() {
                   <div
                     className={`flex h-5 w-5 items-center justify-center rounded border ${
                       isSelected
-                        ? "border-[var(--foreground)] bg-[var(--foreground)] text-[var(--primary-foreground)]"
-                        : "border-[var(--border)] bg-[var(--background)]/80"
+                        ? "border-[hsl(var(--foreground))] bg-[hsl(var(--foreground))] text-[hsl(var(--primary-foreground))]"
+                        : "border-[hsl(var(--border))] bg-[hsl(var(--background))]/80"
                     }`}
                   >
                     {isSelected ? (
@@ -338,13 +338,13 @@ export default function AdminImagesPage() {
 
       {showDeleteConfirm ? (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
-          <div className="w-full max-w-sm rounded-xl border border-[var(--border)] bg-[var(--card)] p-6">
-            <h3 className="text-lg font-semibold text-[var(--foreground)]">
+          <div className="w-full max-w-sm rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-6">
+            <h3 className="text-lg font-semibold text-[hsl(var(--foreground))]">
               ยืนยันการลบ
             </h3>
-            <p className="mt-2 text-sm text-[var(--muted-foreground)]">
+            <p className="mt-2 text-sm text-[hsl(var(--muted-foreground))]">
               คุณแน่ใจหรือไม่ว่าต้องการลบรูปภาพที่เลือก{" "}
-              <span className="font-medium text-[var(--foreground)]">
+              <span className="font-medium text-[hsl(var(--foreground))]">
                 {selectedImageIds.size} รูป
               </span>
               ? การกระทำนี้ไม่สามารถย้อนกลับได้
@@ -352,14 +352,14 @@ export default function AdminImagesPage() {
             <div className="mt-5 flex justify-end gap-3">
               <button
                 onClick={() => setShowDeleteConfirm(false)}
-                className="rounded-lg border border-[var(--border)] px-4 py-2 text-sm font-medium text-[var(--foreground)] transition-colors hover:bg-[var(--muted)]"
+                className="rounded-lg border border-[hsl(var(--border))] px-4 py-2 text-sm font-medium text-[hsl(var(--foreground))] transition-colors hover:bg-[hsl(var(--muted))]"
               >
                 ยกเลิก
               </button>
               <button
                 onClick={handleDelete}
                 disabled={processing}
-                className="inline-flex items-center gap-2 rounded-lg bg-red-500 px-4 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-90 disabled:opacity-50"
+                className="inline-flex items-center gap-2 rounded-lg bg-red-500 px-4 py-2 text-sm font-semibold text-white transition-all hover:bg-red-500/90 disabled:opacity-50"
               >
                 {processing ? (
                   <Loader2 className="h-4 w-4 animate-spin" />

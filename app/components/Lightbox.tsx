@@ -90,7 +90,7 @@ export default function Lightbox({
           alt={`รูปที่ ${currentIndex + 1}`}
           className="max-h-[85vh] max-w-[90vw] rounded-md object-contain"
         />
-        <div className="absolute -bottom-8 left-0 right-0 text-center text-sm text-[var(--muted-foreground)]">
+        <div className="absolute -bottom-8 left-0 right-0 text-center text-sm text-[hsl(var(--muted-foreground))]">
           {currentIndex + 1} / {images.length}
         </div>
       </div>

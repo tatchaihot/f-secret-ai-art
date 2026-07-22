@@ -23,7 +23,7 @@ export default async function Navbar() {
   const settings = await getSettings();
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-[var(--border)] bg-[var(--background)]/80 backdrop-blur-md">
+    <header className="sticky top-0 z-40 w-full border-b border-[hsl(var(--border))] bg-[hsl(var(--background))]/80 backdrop-blur-md">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-3">
           {settings?.logoUrl ? (
@@ -33,16 +33,16 @@ export default async function Navbar() {
               className="h-8 w-auto object-contain"
             />
           ) : null}
-          <span className="text-lg font-semibold tracking-tight text-[var(--foreground)]">
+          <span className="text-lg font-semibold tracking-tight text-[hsl(var(--foreground))]">
             {settings?.title || "F-Secret AI Art"}
           </span>
         </Link>
 
-        <ul className="hidden items-center gap-6 text-sm font-medium text-[var(--muted-foreground)] sm:flex">
+        <ul className="hidden items-center gap-6 text-sm font-medium text-[hsl(var(--muted-foreground))] sm:flex">
           <li>
             <Link
               href="/"
-              className="transition-colors hover:text-[var(--foreground)]"
+              className="transition-colors hover:text-[hsl(var(--foreground))]"
             >
               หน้าแรก
             </Link>
@@ -50,7 +50,7 @@ export default async function Navbar() {
           <li>
             <Link
               href="/gallery"
-              className="transition-colors hover:text-[var(--foreground)]"
+              className="transition-colors hover:text-[hsl(var(--foreground))]"
             >
               Gallery
             </Link>
@@ -58,7 +58,7 @@ export default async function Navbar() {
           <li>
             <Link
               href="/contact"
-              className="transition-colors hover:text-[var(--foreground)]"
+              className="transition-colors hover:text-[hsl(var(--foreground))]"
             >
               ติดต่อ
             </Link>
@@ -69,13 +69,13 @@ export default async function Navbar() {
         <div className="flex items-center gap-4 sm:hidden">
           <Link
             href="/gallery"
-            className="text-sm font-medium text-[var(--muted-foreground)] transition-colors hover:text-[var(--foreground)]"
+            className="text-sm font-medium text-[hsl(var(--muted-foreground))] transition-colors hover:text-[hsl(var(--foreground))]"
           >
             Gallery
           </Link>
           <Link
             href="/contact"
-            className="text-sm font-medium text-[var(--muted-foreground)] transition-colors hover:text-[var(--foreground)]"
+            className="text-sm font-medium text-[hsl(var(--muted-foreground))] transition-colors hover:text-[hsl(var(--foreground))]"
           >
             ติดต่อ
           </Link>

@@ -37,17 +37,17 @@ export default async function GalleryPage() {
   return (
     <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
       <div className="mb-8">
-        <h1 className="text-2xl font-bold tracking-tight text-[var(--foreground)] sm:text-3xl">
+        <h1 className="text-2xl font-bold tracking-tight text-[hsl(var(--foreground))] sm:text-3xl">
           Gallery
         </h1>
-        <p className="mt-2 text-sm text-[var(--muted-foreground)] sm:text-base">
+        <p className="mt-2 text-sm text-[hsl(var(--muted-foreground))] sm:text-base">
           ผลงานภาพ AI จาก F-Secret AI Art
         </p>
       </div>
 
       {catalogs.length === 0 ? (
-        <div className="rounded-xl border border-dashed border-[var(--border)] bg-[var(--card)] p-12 text-center">
-          <p className="text-[var(--muted-foreground)]">ยังไม่มีแคตตาล็อก</p>
+        <div className="rounded-xl border border-dashed border-[hsl(var(--border))] bg-[hsl(var(--card))] p-12 text-center">
+          <p className="text-[hsl(var(--muted-foreground))]">ยังไม่มีแคตตาล็อก</p>
         </div>
       ) : (
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">

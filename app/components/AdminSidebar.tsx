@@ -28,10 +28,10 @@ export default function AdminSidebar() {
   }
 
   return (
-    <aside className="flex h-full min-h-screen w-64 flex-col border-r border-[var(--border)] bg-[var(--card)]">
-      <div className="border-b border-[var(--border)] p-5">
+    <aside className="flex h-full min-h-screen w-64 flex-col border-r border-[hsl(var(--border))] bg-[hsl(var(--card))]">
+      <div className="border-b border-[hsl(var(--border))] p-5">
         <Link href="/admin" className="flex items-center gap-3">
-          <span className="text-lg font-bold tracking-tight text-[var(--foreground)]">
+          <span className="text-lg font-bold tracking-tight text-[hsl(var(--foreground))]">
             F-Secret Admin
           </span>
         </Link>
@@ -48,8 +48,8 @@ export default function AdminSidebar() {
               href={item.href}
               className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors ${
                 isActive
-                  ? "bg-[var(--foreground)] text-[var(--primary-foreground)]"
-                  : "text-[var(--muted-foreground)] hover:bg-[var(--muted)] hover:text-[var(--foreground)]"
+                  ? "bg-[hsl(var(--foreground))] text-[hsl(var(--primary-foreground))]"
+                  : "text-[hsl(var(--muted-foreground))] hover:bg-[hsl(var(--muted))] hover:text-[hsl(var(--foreground))]"
               }`}
             >
               <Icon className="h-4 w-4" />
@@ -59,7 +59,7 @@ export default function AdminSidebar() {
         })}
       </nav>
 
-      <div className="border-t border-[var(--border)] p-3">
+      <div className="border-t border-[hsl(var(--border))] p-3">
         <button
           onClick={handleLogout}
           className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-red-400 transition-colors hover:bg-red-400/10"

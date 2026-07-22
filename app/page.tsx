@@ -36,11 +36,11 @@ export default async function HomePage() {
         />
       ) : null}
 
-      <h1 className="max-w-3xl text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-5xl lg:text-6xl">
+      <h1 className="max-w-3xl text-3xl font-bold tracking-tight text-[hsl(var(--foreground))] sm:text-5xl lg:text-6xl">
         {settings?.title || "F-Secret AI Art"}
       </h1>
 
-      <p className="mt-6 max-w-xl text-base leading-relaxed text-[var(--muted-foreground)] sm:text-lg">
+      <p className="mt-6 max-w-xl text-base leading-relaxed text-[hsl(var(--muted-foreground))] sm:text-lg">
         {settings?.description ||
           "รับสร้างภาพ AI คุณภาพสูง ตามสไตล์ที่คุณต้องการ"}
       </p>
@@ -48,14 +48,14 @@ export default async function HomePage() {
       <div className="mt-10 flex flex-col gap-4 sm:flex-row">
         <Link
           href="/gallery"
-          className="inline-flex items-center justify-center gap-2 rounded-full bg-[var(--primary)] px-6 py-3 text-sm font-semibold text-[var(--primary-foreground)] transition-opacity hover:opacity-90"
+          className="inline-flex items-center justify-center gap-2 rounded-full bg-[hsl(var(--primary))] px-6 py-3 text-sm font-semibold text-[hsl(var(--primary-foreground))] transition-all hover:bg-primary/90"
         >
           เข้าชม Gallery
           <ArrowRight className="h-4 w-4" />
         </Link>
         <Link
           href="/contact"
-          className="inline-flex items-center justify-center gap-2 rounded-full border border-[var(--border)] bg-transparent px-6 py-3 text-sm font-semibold text-[var(--foreground)] transition-colors hover:bg-[var(--card)]"
+          className="inline-flex items-center justify-center gap-2 rounded-full border border-[hsl(var(--border))] bg-transparent px-6 py-3 text-sm font-semibold text-[hsl(var(--foreground))] transition-colors hover:bg-[hsl(var(--card))]"
         >
           ติดต่อเรา
         </Link>
@@ -69,12 +69,12 @@ export default async function HomePage() {
         ].map((item) => (
           <div
             key={item.title}
-            className="rounded-xl border border-[var(--border)] bg-[var(--card)] p-6 text-left"
+            className="rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-6 text-left"
           >
-            <h3 className="text-base font-semibold text-[var(--foreground)]">
+            <h3 className="text-base font-semibold text-[hsl(var(--foreground))]">
               {item.title}
             </h3>
-            <p className="mt-2 text-sm text-[var(--muted-foreground)]">
+            <p className="mt-2 text-sm text-[hsl(var(--muted-foreground))]">
               {item.desc}
             </p>
           </div>

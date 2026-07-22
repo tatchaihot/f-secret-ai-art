@@ -32,34 +32,34 @@ export default async function ContactPage() {
     <main className="mx-auto max-w-2xl px-4 py-8 sm:px-6 lg:px-8">
       <Link
         href="/"
-        className="mb-6 inline-flex items-center gap-2 text-sm font-medium text-[var(--muted-foreground)] transition-colors hover:text-[var(--foreground)]"
+        className="mb-6 inline-flex items-center gap-2 text-sm font-medium text-[hsl(var(--muted-foreground))] transition-colors hover:text-[hsl(var(--foreground))]"
       >
         <ArrowLeft className="h-4 w-4" />
         กลับไปหน้าแรก
       </Link>
 
-      <h1 className="text-2xl font-bold tracking-tight text-[var(--foreground)] sm:text-3xl">
+      <h1 className="text-2xl font-bold tracking-tight text-[hsl(var(--foreground))] sm:text-3xl">
         ติดต่อเรา
       </h1>
-      <p className="mt-2 text-[var(--muted-foreground)]">
+      <p className="mt-2 text-[hsl(var(--muted-foreground))]">
         สนใจสร้างภาพ AI หรือสอบถามข้อมูล ติดต่อเราได้ทาง Line
       </p>
 
-      <div className="mt-8 rounded-xl border border-[var(--border)] bg-[var(--card)] p-6 sm:p-8">
+      <div className="mt-8 rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-6 sm:p-8">
         <div className="flex flex-col items-center gap-6 text-center">
           <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#06C755] text-white">
             <MessageCircle className="h-7 w-7" />
           </div>
 
           <div>
-            <p className="text-sm text-[var(--muted-foreground)]">Line ID</p>
-            <p className="mt-1 text-xl font-semibold text-[var(--foreground)]">
+            <p className="text-sm text-[hsl(var(--muted-foreground))]">Line ID</p>
+            <p className="mt-1 text-xl font-semibold text-[hsl(var(--foreground))]">
               {lineId}
             </p>
           </div>
 
           {settings?.lineQrUrl ? (
-            <div className="overflow-hidden rounded-lg border border-[var(--border)] bg-white p-2">
+            <div className="overflow-hidden rounded-lg border border-[hsl(var(--border))] bg-white p-2">
               <img
                 src={settings.lineQrUrl}
                 alt="Line QR Code"
@@ -72,7 +72,7 @@ export default async function ContactPage() {
             href={lineUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90 sm:w-auto"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#06C755] px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-[#06C755]/90 sm:w-auto"
           >
             <MessageCircle className="h-4 w-4" />
             แอด Line เพื่อติดต่อ

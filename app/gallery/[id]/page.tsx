@@ -51,15 +51,15 @@ export default async function CatalogDetailPage({
   if (!catalog) {
     return (
       <main className="mx-auto max-w-7xl px-4 py-16 text-center sm:px-6 lg:px-8">
-        <h1 className="text-2xl font-bold text-[var(--foreground)]">
+        <h1 className="text-2xl font-bold text-[hsl(var(--foreground))]">
           ไม่พบแคตตาล็อก
         </h1>
-        <p className="mt-2 text-[var(--muted-foreground)]">
+        <p className="mt-2 text-[hsl(var(--muted-foreground))]">
           แคตตาล็อกที่คุณกำลังมองหาอาจถูกลบไปแล้ว
         </p>
         <Link
           href="/gallery"
-          className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[var(--foreground)] hover:underline"
+          className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[hsl(var(--foreground))] hover:underline"
         >
           <ArrowLeft className="h-4 w-4" />
           กลับไป Gallery
@@ -72,18 +72,18 @@ export default async function CatalogDetailPage({
     <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
       <Link
         href="/gallery"
-        className="mb-4 inline-flex items-center gap-2 text-sm font-medium text-[var(--muted-foreground)] transition-colors hover:text-[var(--foreground)]"
+        className="mb-4 inline-flex items-center gap-2 text-sm font-medium text-[hsl(var(--muted-foreground))] transition-colors hover:text-[hsl(var(--foreground))]"
       >
         <ArrowLeft className="h-4 w-4" />
         กลับไป Gallery
       </Link>
 
       <div className="mb-6">
-        <h1 className="text-2xl font-bold tracking-tight text-[var(--foreground)] sm:text-3xl">
+        <h1 className="text-2xl font-bold tracking-tight text-[hsl(var(--foreground))] sm:text-3xl">
           {catalog.name}
         </h1>
         {catalog.description ? (
-          <p className="mt-2 text-sm text-[var(--muted-foreground)] sm:text-base">
+          <p className="mt-2 text-sm text-[hsl(var(--muted-foreground))] sm:text-base">
             {catalog.description}
           </p>
         ) : null}

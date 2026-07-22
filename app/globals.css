@@ -2,22 +2,59 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #0a0a0a;
-  --foreground: #f5f5f5;
-  --card: #141414;
-  --card-foreground: #f5f5f5;
-  --border: #262626;
-  --primary: #f5f5f5;
-  --primary-foreground: #0a0a0a;
-  --muted: #171717;
-  --muted-foreground: #a3a3a3;
+@layer base {
+  :root {
+    --background: 240 15% 4%;
+    --foreground: 0 0% 96%;
+    --card: 240 12% 7%;
+    --card-foreground: 0 0% 96%;
+    --popover: 240 12% 7%;
+    --popover-foreground: 0 0% 96%;
+    --primary: 38 50% 55%;
+    --primary-foreground: 240 15% 4%;
+    --secondary: 240 8% 14%;
+    --secondary-foreground: 0 0% 96%;
+    --muted: 240 8% 14%;
+    --muted-foreground: 240 5% 55%;
+    --accent: 38 50% 55%;
+    --accent-foreground: 240 15% 4%;
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 8% 16%;
+    --input: 240 8% 16%;
+    --ring: 38 50% 55%;
+    --radius: 0.625rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', 'Noto Sans Thai', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+@layer base {
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground));
+  }
 }
 
 @layer utilities {

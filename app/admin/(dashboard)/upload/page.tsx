@@ -207,7 +207,7 @@ export default function AdminUploadPage() {
   if (loadingCatalogs) {
     return (
       <div className="flex items-center justify-center py-12">
-        <Loader2 className="h-8 w-8 animate-spin text-[var(--muted-foreground)]" />
+        <Loader2 className="h-8 w-8 animate-spin text-[hsl(var(--muted-foreground))]" />
       </div>
     );
   }
@@ -215,10 +215,10 @@ export default function AdminUploadPage() {
   return (
     <div className="mx-auto max-w-4xl space-y-6">
       <div>
-        <h1 className="text-2xl font-bold tracking-tight text-[var(--foreground)] sm:text-3xl">
+        <h1 className="text-2xl font-bold tracking-tight text-[hsl(var(--foreground))] sm:text-3xl">
           Upload
         </h1>
-        <p className="mt-1 text-sm text-[var(--muted-foreground)]">
+        <p className="mt-1 text-sm text-[hsl(var(--muted-foreground))]">
           อัปโหลดรูปภาพเข้า Catalog
         </p>
       </div>
@@ -241,10 +241,10 @@ export default function AdminUploadPage() {
         </div>
       ) : null}
 
-      <div className="rounded-xl border border-[var(--border)] bg-[var(--card)] p-5">
+      <div className="rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-5">
         <label
           htmlFor="uploadCatalog"
-          className="block text-sm font-medium text-[var(--foreground)]"
+          className="block text-sm font-medium text-[hsl(var(--foreground))]"
         >
           Catalog ปลายทาง <span className="text-red-400">*</span>
         </label>
@@ -252,7 +252,7 @@ export default function AdminUploadPage() {
           id="uploadCatalog"
           value={selectedCatalog}
           onChange={(e) => setSelectedCatalog(e.target.value)}
-          className="mt-1 w-full rounded-lg border border-[var(--border)] bg-[var(--background)] px-4 py-2.5 text-sm text-[var(--foreground)] focus:border-[var(--foreground)] focus:outline-none focus:ring-1 focus:ring-[var(--foreground)]"
+          className="mt-1 w-full rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--background))] px-4 py-2.5 text-sm text-[hsl(var(--foreground))] focus:border-[hsl(var(--foreground))] focus:outline-none focus:ring-1 focus:ring-[hsl(var(--foreground))]"
         >
           <option value="">เลือก Catalog</option>
           {catalogs.map((catalog) => (
@@ -269,8 +269,8 @@ export default function AdminUploadPage() {
         onDragLeave={handleDragLeave}
         className={`relative rounded-xl border-2 border-dashed p-8 text-center transition-colors ${
           isDragging
-            ? "border-[var(--foreground)] bg-[var(--muted)]"
-            : "border-[var(--border)] bg-[var(--card)] hover:border-[var(--muted-foreground)]"
+            ? "border-[hsl(var(--foreground))] bg-[hsl(var(--muted))]"
+            : "border-[hsl(var(--border))] bg-[hsl(var(--card))] hover:border-[hsl(var(--muted-foreground))]"
         }`}
       >
         <input
@@ -285,13 +285,13 @@ export default function AdminUploadPage() {
           htmlFor="fileInput"
           className="flex cursor-pointer flex-col items-center justify-center"
         >
-          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--muted)]">
-            <Upload className="h-6 w-6 text-[var(--foreground)]" />
+          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[hsl(var(--muted))]">
+            <Upload className="h-6 w-6 text-[hsl(var(--foreground))]" />
           </div>
-          <p className="mt-4 text-sm font-medium text-[var(--foreground)]">
+          <p className="mt-4 text-sm font-medium text-[hsl(var(--foreground))]">
             ลากรูปมาวางที่นี่ หรือคลิกเพื่อเลือกไฟล์
           </p>
-          <p className="mt-1 text-xs text-[var(--muted-foreground)]">
+          <p className="mt-1 text-xs text-[hsl(var(--muted-foreground))]">
             รองรับไฟล์รูปภาพหลายไฟล์
           </p>
         </label>
@@ -300,7 +300,7 @@ export default function AdminUploadPage() {
       {files.length > 0 ? (
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <h2 className="text-base font-semibold text-[var(--foreground)]">
+            <h2 className="text-base font-semibold text-[hsl(var(--foreground))]">
               รูปที่เลือก ({files.length})
             </h2>
             <button
@@ -315,16 +315,16 @@ export default function AdminUploadPage() {
           {isUploading ? (
             <div className="space-y-2">
               <div className="flex items-center justify-between text-sm">
-                <span className="text-[var(--foreground)]">
+                <span className="text-[hsl(var(--foreground))]">
                   กำลังอัปโหลด...
                 </span>
-                <span className="text-[var(--muted-foreground)]">
+                <span className="text-[hsl(var(--muted-foreground))]">
                   {completedCount}/{totalUploadCount} ({overallProgress}%)
                 </span>
               </div>
-              <div className="h-2 w-full overflow-hidden rounded-full bg-[var(--muted)]">
+              <div className="h-2 w-full overflow-hidden rounded-full bg-[hsl(var(--muted))]">
                 <div
-                  className="h-full rounded-full bg-[var(--primary)] transition-all duration-300"
+                  className="h-full rounded-full bg-[hsl(var(--primary))] transition-all duration-300"
                   style={{ width: `${overallProgress}%` }}
                 />
               </div>
@@ -335,7 +335,7 @@ export default function AdminUploadPage() {
             {files.map((filePreview) => (
               <div
                 key={filePreview.id}
-                className="group relative overflow-hidden rounded-lg border border-[var(--border)] bg-[var(--card)]"
+                className="group relative overflow-hidden rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--card))]"
               >
                 <div className="aspect-square">
                   <img
@@ -374,7 +374,7 @@ export default function AdminUploadPage() {
                   <X className="h-3.5 w-3.5" />
                 </button>
 
-                <div className="truncate p-2 text-xs text-[var(--muted-foreground)]">
+                <div className="truncate p-2 text-xs text-[hsl(var(--muted-foreground))]">
                   {filePreview.file.name}
                 </div>
               </div>
@@ -384,7 +384,7 @@ export default function AdminUploadPage() {
           <button
             onClick={handleUpload}
             disabled={isUploading || !selectedCatalog}
-            className="flex w-full items-center justify-center gap-2 rounded-lg bg-[var(--primary)] px-4 py-3 text-sm font-semibold text-[var(--primary-foreground)] transition-opacity hover:opacity-90 disabled:opacity-50"
+            className="flex w-full items-center justify-center gap-2 rounded-lg bg-[hsl(var(--primary))] px-4 py-3 text-sm font-semibold text-[hsl(var(--primary-foreground))] transition-all hover:bg-primary/90 disabled:opacity-50"
           >
             {isUploading ? (
               <Loader2 className="h-4 w-4 animate-spin" />
@@ -395,9 +395,9 @@ export default function AdminUploadPage() {
           </button>
         </div>
       ) : (
-        <div className="rounded-xl border border-dashed border-[var(--border)] bg-[var(--card)] p-12 text-center">
-          <ImageIcon className="mx-auto h-10 w-10 text-[var(--muted-foreground)]" />
-          <p className="mt-4 text-sm text-[var(--muted-foreground)]">
+        <div className="rounded-xl border border-dashed border-[hsl(var(--border))] bg-[hsl(var(--card))] p-12 text-center">
+          <ImageIcon className="mx-auto h-10 w-10 text-[hsl(var(--muted-foreground))]" />
+          <p className="mt-4 text-sm text-[hsl(var(--muted-foreground))]">
             ยังไม่ได้เลือกรูปภาพ
           </p>
         </div>

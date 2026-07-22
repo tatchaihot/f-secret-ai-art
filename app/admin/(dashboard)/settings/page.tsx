@@ -96,7 +96,7 @@ export default function AdminSettingsPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-12">
-        <Loader2 className="h-8 w-8 animate-spin text-[var(--muted-foreground)]" />
+        <Loader2 className="h-8 w-8 animate-spin text-[hsl(var(--muted-foreground))]" />
       </div>
     );
   }
@@ -104,10 +104,10 @@ export default function AdminSettingsPage() {
   return (
     <div className="mx-auto max-w-3xl space-y-6">
       <div>
-        <h1 className="text-2xl font-bold tracking-tight text-[var(--foreground)] sm:text-3xl">
+        <h1 className="text-2xl font-bold tracking-tight text-[hsl(var(--foreground))] sm:text-3xl">
           Settings
         </h1>
-        <p className="mt-1 text-sm text-[var(--muted-foreground)]">
+        <p className="mt-1 text-sm text-[hsl(var(--muted-foreground))]">
           ตั้งค่าทั่วไปของเว็บไซต์
         </p>
       </div>
@@ -126,17 +126,17 @@ export default function AdminSettingsPage() {
 
       <form
         onSubmit={handleSubmit}
-        className="rounded-xl border border-[var(--border)] bg-[var(--card)] p-6"
+        className="rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-6"
       >
         <div className="mb-6 flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--muted)]">
-            <Settings2 className="h-5 w-5 text-[var(--foreground)]" />
+          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[hsl(var(--muted))]">
+            <Settings2 className="h-5 w-5 text-[hsl(var(--foreground))]" />
           </div>
           <div>
-            <h2 className="text-base font-semibold text-[var(--foreground)]">
+            <h2 className="text-base font-semibold text-[hsl(var(--foreground))]">
               ข้อมูลเว็บไซต์
             </h2>
-            <p className="text-xs text-[var(--muted-foreground)]">
+            <p className="text-xs text-[hsl(var(--muted-foreground))]">
               ข้อมูลเหล่านี้จะแสดงบนหน้าเว็บหลัก
             </p>
           </div>
@@ -146,7 +146,7 @@ export default function AdminSettingsPage() {
           <div>
             <label
               htmlFor="title"
-              className="block text-sm font-medium text-[var(--foreground)]"
+              className="block text-sm font-medium text-[hsl(var(--foreground))]"
             >
               ชื่อเว็บไซต์ (title)
             </label>
@@ -157,14 +157,14 @@ export default function AdminSettingsPage() {
               value={settings.title}
               onChange={handleChange}
               placeholder="F-Secret AI Art"
-              className="mt-1 w-full rounded-lg border border-[var(--border)] bg-[var(--background)] px-4 py-2.5 text-sm text-[var(--foreground)] placeholder:text-[var(--muted-foreground)] focus:border-[var(--foreground)] focus:outline-none focus:ring-1 focus:ring-[var(--foreground)]"
+              className="mt-1 w-full rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--background))] px-4 py-2.5 text-sm text-[hsl(var(--foreground))] placeholder:text-[hsl(var(--muted-foreground))] focus:border-[hsl(var(--foreground))] focus:outline-none focus:ring-1 focus:ring-[hsl(var(--foreground))]"
             />
           </div>
 
           <div>
             <label
               htmlFor="description"
-              className="block text-sm font-medium text-[var(--foreground)]"
+              className="block text-sm font-medium text-[hsl(var(--foreground))]"
             >
               คำอธิบาย (description)
             </label>
@@ -175,14 +175,14 @@ export default function AdminSettingsPage() {
               onChange={handleChange}
               placeholder="รับสร้างภาพ AI คุณภาพสูง"
               rows={4}
-              className="mt-1 w-full rounded-lg border border-[var(--border)] bg-[var(--background)] px-4 py-2.5 text-sm text-[var(--foreground)] placeholder:text-[var(--muted-foreground)] focus:border-[var(--foreground)] focus:outline-none focus:ring-1 focus:ring-[var(--foreground)]"
+              className="mt-1 w-full rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--background))] px-4 py-2.5 text-sm text-[hsl(var(--foreground))] placeholder:text-[hsl(var(--muted-foreground))] focus:border-[hsl(var(--foreground))] focus:outline-none focus:ring-1 focus:ring-[hsl(var(--foreground))]"
             />
           </div>
 
           <div>
             <label
               htmlFor="lineId"
-              className="block text-sm font-medium text-[var(--foreground)]"
+              className="block text-sm font-medium text-[hsl(var(--foreground))]"
             >
               LINE ID
             </label>
@@ -193,14 +193,14 @@ export default function AdminSettingsPage() {
               value={settings.lineId}
               onChange={handleChange}
               placeholder="เช่น @yourline"
-              className="mt-1 w-full rounded-lg border border-[var(--border)] bg-[var(--background)] px-4 py-2.5 text-sm text-[var(--foreground)] placeholder:text-[var(--muted-foreground)] focus:border-[var(--foreground)] focus:outline-none focus:ring-1 focus:ring-[var(--foreground)]"
+              className="mt-1 w-full rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--background))] px-4 py-2.5 text-sm text-[hsl(var(--foreground))] placeholder:text-[hsl(var(--muted-foreground))] focus:border-[hsl(var(--foreground))] focus:outline-none focus:ring-1 focus:ring-[hsl(var(--foreground))]"
             />
           </div>
 
           <div>
             <label
               htmlFor="lineQrUrl"
-              className="block text-sm font-medium text-[var(--foreground)]"
+              className="block text-sm font-medium text-[hsl(var(--foreground))]"
             >
               LINE QR Code URL
             </label>
@@ -211,14 +211,14 @@ export default function AdminSettingsPage() {
               value={settings.lineQrUrl}
               onChange={handleChange}
               placeholder="https://..."
-              className="mt-1 w-full rounded-lg border border-[var(--border)] bg-[var(--background)] px-4 py-2.5 text-sm text-[var(--foreground)] placeholder:text-[var(--muted-foreground)] focus:border-[var(--foreground)] focus:outline-none focus:ring-1 focus:ring-[var(--foreground)]"
+              className="mt-1 w-full rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--background))] px-4 py-2.5 text-sm text-[hsl(var(--foreground))] placeholder:text-[hsl(var(--muted-foreground))] focus:border-[hsl(var(--foreground))] focus:outline-none focus:ring-1 focus:ring-[hsl(var(--foreground))]"
             />
           </div>
 
           <div>
             <label
               htmlFor="logoUrl"
-              className="block text-sm font-medium text-[var(--foreground)]"
+              className="block text-sm font-medium text-[hsl(var(--foreground))]"
             >
               Logo URL
             </label>
@@ -229,17 +229,17 @@ export default function AdminSettingsPage() {
               value={settings.logoUrl}
               onChange={handleChange}
               placeholder="https://..."
-              className="mt-1 w-full rounded-lg border border-[var(--border)] bg-[var(--background)] px-4 py-2.5 text-sm text-[var(--foreground)] placeholder:text-[var(--muted-foreground)] focus:border-[var(--foreground)] focus:outline-none focus:ring-1 focus:ring-[var(--foreground)]"
+              className="mt-1 w-full rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--background))] px-4 py-2.5 text-sm text-[hsl(var(--foreground))] placeholder:text-[hsl(var(--muted-foreground))] focus:border-[hsl(var(--foreground))] focus:outline-none focus:ring-1 focus:ring-[hsl(var(--foreground))]"
             />
             {settings.logoUrl ? (
               <div className="mt-3">
-                <p className="mb-2 text-xs text-[var(--muted-foreground)]">
+                <p className="mb-2 text-xs text-[hsl(var(--muted-foreground))]">
                   Preview:
                 </p>
                 <img
                   src={settings.logoUrl}
                   alt="Logo preview"
-                  className="h-16 w-auto rounded-lg border border-[var(--border)] object-contain bg-[var(--background)]"
+                  className="h-16 w-auto rounded-lg border border-[hsl(var(--border))] object-contain bg-[hsl(var(--background))]"
                 />
               </div>
             ) : null}
@@ -250,7 +250,7 @@ export default function AdminSettingsPage() {
           <button
             type="submit"
             disabled={saving}
-            className="inline-flex items-center gap-2 rounded-lg bg-[var(--primary)] px-6 py-2.5 text-sm font-semibold text-[var(--primary-foreground)] transition-opacity hover:opacity-90 disabled:opacity-50"
+            className="inline-flex items-center gap-2 rounded-lg bg-[hsl(var(--primary))] px-6 py-2.5 text-sm font-semibold text-[hsl(var(--primary-foreground))] transition-all hover:bg-primary/90 disabled:opacity-50"
           >
             {saving ? (
               <Loader2 className="h-4 w-4 animate-spin" />

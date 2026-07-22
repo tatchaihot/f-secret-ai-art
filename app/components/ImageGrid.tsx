@@ -50,8 +50,8 @@ export default function ImageGrid({ images }: ImageGridProps) {
 
   if (images.length === 0) {
     return (
-      <div className="rounded-xl border border-dashed border-[var(--border)] bg-[var(--card)] p-12 text-center">
-        <p className="text-[var(--muted-foreground)]">ยังไม่มีรูปภาพในแคตตาล็อกนี้</p>
+      <div className="rounded-xl border border-dashed border-[hsl(var(--border))] bg-[hsl(var(--card))] p-12 text-center">
+        <p className="text-[hsl(var(--muted-foreground))]">ยังไม่มีรูปภาพในแคตตาล็อกนี้</p>
       </div>
     );
   }
@@ -63,7 +63,7 @@ export default function ImageGrid({ images }: ImageGridProps) {
           <button
             key={image.id}
             onClick={() => openLightbox(index)}
-            className="group relative aspect-square overflow-hidden rounded-lg border border-[var(--border)] bg-[var(--card)] text-left transition-colors hover:border-[var(--muted-foreground)] focus:outline-none focus:ring-2 focus:ring-[var(--foreground)] focus:ring-offset-2 focus:ring-offset-[var(--background)]"
+            className="group relative aspect-square overflow-hidden rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--card))] text-left transition-colors hover:border-[hsl(var(--muted-foreground))] focus:outline-none focus:ring-2 focus:ring-[hsl(var(--foreground))] focus:ring-offset-2 focus:ring-offset-[hsl(var(--background))]"
           >
             <img
               src={image.thumbnailUrl || image.url}
