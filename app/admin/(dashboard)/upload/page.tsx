@@ -32,6 +32,8 @@ export default function AdminUploadPage() {
   const [loadingCatalogs, setLoadingCatalogs] = useState(true);
   const [isUploading, setIsUploading] = useState(false);
   const [overallProgress, setOverallProgress] = useState(0);
+  const [completedCount, setCompletedCount] = useState(0);
+  const [totalUploadCount, setTotalUploadCount] = useState(0);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
   const [isDragging, setIsDragging] = useState(false);
@@ -121,8 +123,10 @@ export default function AdminUploadPage() {
     setError(null);
     setSuccess(null);
     setOverallProgress(0);
+    setCompletedCount(0);
 
     const pendingFiles = files.filter((f) => f.status !== "done");
+    setTotalUploadCount(pendingFiles.length);
     let completed = 0;
 
     const uploadResults = await Promise.all(
@@ -169,6 +173,7 @@ export default function AdminUploadPage() {
           return { status: "error" as const };
         } finally {
           completed++;
+          setCompletedCount(completed);
           setOverallProgress(Math.round((completed / pendingFiles.length) * 100));
         }
       })
@@ -314,7 +319,7 @@ export default function AdminUploadPage() {
                   กำลังอัปโหลด...
                 </span>
                 <span className="text-[var(--muted-foreground)]">
-                  {overallProgress}%
+                  {completedCount}/{totalUploadCount} ({overallProgress}%)
                 </span>
               </div>
               <div className="h-2 w-full overflow-hidden rounded-full bg-[var(--muted)]">
