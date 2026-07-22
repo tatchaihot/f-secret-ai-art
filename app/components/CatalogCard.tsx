@@ -28,14 +28,14 @@ export default function CatalogCard({ catalog }: CatalogCardProps) {
   return (
     <Link
       href={`/gallery/${catalog.id}`}
-      className="group block overflow-hidden rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] transition-colors hover:border-[hsl(var(--muted-foreground))]"
+      className="group block overflow-hidden rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[hsl(var(--muted-foreground))] hover:shadow-lg hover:shadow-black/20"
     >
       <div className="grid aspect-square grid-cols-2 gap-0.5 bg-[hsl(var(--border))]">
         {previewImages.length > 0 ? (
           previewImages.map((image, index) => (
             <div
               key={image.id}
-              className="relative overflow-hidden bg-[hsl(var(--card))]"
+              className="relative overflow-hidden bg-[hsl(var(--card))] shadow-sm"
             >
               <img
                 src={image.thumbnailUrl || image.url}
@@ -46,20 +46,20 @@ export default function CatalogCard({ catalog }: CatalogCardProps) {
             </div>
           ))
         ) : (
-          <div className="col-span-2 flex items-center justify-center bg-[hsl(var(--card))]">
+          <div className="col-span-2 flex items-center justify-center bg-[hsl(var(--card))] shadow-sm">
             <ImageIcon className="h-10 w-10 text-[hsl(var(--muted-foreground))]" />
           </div>
         )}
 
         {previewImages.length === 1 && (
           <>
-            <div className="flex items-center justify-center bg-[hsl(var(--card))]">
+            <div className="flex items-center justify-center bg-[hsl(var(--card))] shadow-sm">
               <ImageIcon className="h-8 w-8 text-[hsl(var(--muted-foreground))]" />
             </div>
-            <div className="flex items-center justify-center bg-[hsl(var(--card))]">
+            <div className="flex items-center justify-center bg-[hsl(var(--card))] shadow-sm">
               <ImageIcon className="h-8 w-8 text-[hsl(var(--muted-foreground))]" />
             </div>
-            <div className="flex items-center justify-center bg-[hsl(var(--card))]">
+            <div className="flex items-center justify-center bg-[hsl(var(--card))] shadow-sm">
               <ImageIcon className="h-8 w-8 text-[hsl(var(--muted-foreground))]" />
             </div>
           </>
@@ -67,17 +67,17 @@ export default function CatalogCard({ catalog }: CatalogCardProps) {
 
         {previewImages.length === 2 && (
           <>
-            <div className="flex items-center justify-center bg-[hsl(var(--card))]">
+            <div className="flex items-center justify-center bg-[hsl(var(--card))] shadow-sm">
               <ImageIcon className="h-8 w-8 text-[hsl(var(--muted-foreground))]" />
             </div>
-            <div className="flex items-center justify-center bg-[hsl(var(--card))]">
+            <div className="flex items-center justify-center bg-[hsl(var(--card))] shadow-sm">
               <ImageIcon className="h-8 w-8 text-[hsl(var(--muted-foreground))]" />
             </div>
           </>
         )}
 
         {previewImages.length === 3 && (
-          <div className="flex items-center justify-center bg-[hsl(var(--card))]">
+          <div className="flex items-center justify-center bg-[hsl(var(--card))] shadow-sm">
             <ImageIcon className="h-8 w-8 text-[hsl(var(--muted-foreground))]" />
           </div>
         )}

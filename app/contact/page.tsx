@@ -45,7 +45,7 @@ export default async function ContactPage() {
         สนใจสร้างภาพ AI หรือสอบถามข้อมูล ติดต่อเราได้ทาง Line
       </p>
 
-      <div className="mt-8 rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-6 sm:p-8">
+      <div className="mt-8 rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] shadow-sm p-6 sm:p-8">
         <div className="flex flex-col items-center gap-6 text-center">
           <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#06C755] text-white">
             <MessageCircle className="h-7 w-7" />

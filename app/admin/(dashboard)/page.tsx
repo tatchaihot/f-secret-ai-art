@@ -89,7 +89,7 @@ export default function AdminDashboardPage() {
       ) : (
         <>
           <div className="grid gap-4 sm:grid-cols-2">
-            <div className="rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-6">
+            <div className="rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] shadow-sm p-6">
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[hsl(var(--muted))]">
                   <FolderOpen className="h-5 w-5 text-[hsl(var(--foreground))]" />
@@ -105,7 +105,7 @@ export default function AdminDashboardPage() {
               </div>
             </div>
 
-            <div className="rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-6">
+            <div className="rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] shadow-sm p-6">
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[hsl(var(--muted))]">
                   <ImageIcon className="h-5 w-5 text-[hsl(var(--foreground))]" />
@@ -133,7 +133,7 @@ export default function AdminDashboardPage() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="group flex items-center justify-between rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-4 transition-colors hover:border-[hsl(var(--muted-foreground))]"
+                    className="group flex items-center justify-between rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] shadow-sm p-4 transition-colors hover:border-[hsl(var(--muted-foreground))]"
                   >
                     <div className="flex items-center gap-3">
                       <Icon className="h-5 w-5 text-[hsl(var(--muted-foreground))]" />

@@ -193,7 +193,7 @@ export default function AdminImagesPage() {
         </div>
       ) : null}
 
-      <div className="rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-4">
+      <div className="rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] shadow-sm p-4">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end">
           <div className="flex-1">
             <label
@@ -284,7 +284,7 @@ export default function AdminImagesPage() {
           <Loader2 className="h-8 w-8 animate-spin text-[hsl(var(--muted-foreground))]" />
         </div>
       ) : images.length === 0 ? (
-        <div className="rounded-xl border border-dashed border-[hsl(var(--border))] bg-[hsl(var(--card))] p-12 text-center">
+        <div className="rounded-xl border border-dashed border-[hsl(var(--border))] bg-[hsl(var(--card))] shadow-sm p-12 text-center">
           <ImageIcon className="mx-auto h-10 w-10 text-[hsl(var(--muted-foreground))]" />
           <p className="mt-4 text-[hsl(var(--muted-foreground))]">
             ไม่พบรูปภาพใน Catalog นี้
@@ -298,7 +298,7 @@ export default function AdminImagesPage() {
               <div
                 key={image.id}
                 onClick={() => toggleImageSelection(image.id)}
-                className={`group relative cursor-pointer overflow-hidden rounded-lg border bg-[hsl(var(--card))] transition-colors ${
+                className={`group relative cursor-pointer overflow-hidden rounded-lg border bg-[hsl(var(--card))] shadow-sm transition-colors ${
                   isSelected
                     ? "border-[hsl(var(--foreground))] ring-2 ring-[hsl(var(--foreground))] ring-offset-2 ring-offset-[hsl(var(--background))]"
                     : "border-[hsl(var(--border))] hover:border-[hsl(var(--muted-foreground))]"
@@ -338,7 +338,7 @@ export default function AdminImagesPage() {
 
       {showDeleteConfirm ? (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
-          <div className="w-full max-w-sm rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-6">
+          <div className="w-full max-w-sm rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] shadow-sm p-6">
             <h3 className="text-lg font-semibold text-[hsl(var(--foreground))]">
               ยืนยันการลบ
             </h3>

@@ -55,7 +55,7 @@ export default async function HomePage() {
         </Link>
         <Link
           href="/contact"
-          className="inline-flex items-center justify-center gap-2 rounded-full border border-[hsl(var(--border))] bg-transparent px-6 py-3 text-sm font-semibold text-[hsl(var(--foreground))] transition-colors hover:bg-[hsl(var(--card))]"
+          className="inline-flex items-center justify-center gap-2 rounded-full border border-[hsl(var(--border))] bg-transparent px-6 py-3 text-sm font-semibold text-[hsl(var(--foreground))] transition-colors hover:bg-[hsl(var(--card))] shadow-sm"
         >
           ติดต่อเรา
         </Link>
@@ -69,7 +69,7 @@ export default async function HomePage() {
         ].map((item) => (
           <div
             key={item.title}
-            className="rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-6 text-left"
+            className="rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] shadow-sm p-6 text-left shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[hsl(var(--muted-foreground))] hover:shadow-lg hover:shadow-black/20"
           >
             <h3 className="text-base font-semibold text-[hsl(var(--foreground))]">
               {item.title}

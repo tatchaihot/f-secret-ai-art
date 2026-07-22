@@ -241,7 +241,7 @@ export default function AdminUploadPage() {
         </div>
       ) : null}
 
-      <div className="rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-5">
+      <div className="rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] shadow-sm p-5">
         <label
           htmlFor="uploadCatalog"
           className="block text-sm font-medium text-[hsl(var(--foreground))]"
@@ -270,7 +270,7 @@ export default function AdminUploadPage() {
         className={`relative rounded-xl border-2 border-dashed p-8 text-center transition-colors ${
           isDragging
             ? "border-[hsl(var(--foreground))] bg-[hsl(var(--muted))]"
-            : "border-[hsl(var(--border))] bg-[hsl(var(--card))] hover:border-[hsl(var(--muted-foreground))]"
+            : "border-[hsl(var(--border))] bg-[hsl(var(--card))] shadow-sm hover:border-[hsl(var(--muted-foreground))]"
         }`}
       >
         <input
@@ -335,7 +335,7 @@ export default function AdminUploadPage() {
             {files.map((filePreview) => (
               <div
                 key={filePreview.id}
-                className="group relative overflow-hidden rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--card))]"
+                className="group relative overflow-hidden rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--card))] shadow-sm"
               >
                 <div className="aspect-square">
                   <img
@@ -395,7 +395,7 @@ export default function AdminUploadPage() {
           </button>
         </div>
       ) : (
-        <div className="rounded-xl border border-dashed border-[hsl(var(--border))] bg-[hsl(var(--card))] p-12 text-center">
+        <div className="rounded-xl border border-dashed border-[hsl(var(--border))] bg-[hsl(var(--card))] shadow-sm p-12 text-center">
           <ImageIcon className="mx-auto h-10 w-10 text-[hsl(var(--muted-foreground))]" />
           <p className="mt-4 text-sm text-[hsl(var(--muted-foreground))]">
             ยังไม่ได้เลือกรูปภาพ

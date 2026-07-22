@@ -199,7 +199,7 @@ export default function AdminCatalogsPage() {
       ) : null}
 
       {isFormOpen ? (
-        <div className="rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-5">
+        <div className="rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] shadow-sm p-5">
           <div className="mb-4 flex items-center justify-between">
             <h2 className="text-base font-semibold text-[hsl(var(--foreground))]">
               {editingCatalog ? "แก้ไข Catalog" : "สร้าง Catalog ใหม่"}
@@ -291,14 +291,14 @@ export default function AdminCatalogsPage() {
           <Loader2 className="h-8 w-8 animate-spin text-[hsl(var(--muted-foreground))]" />
         </div>
       ) : catalogs.length === 0 ? (
-        <div className="rounded-xl border border-dashed border-[hsl(var(--border))] bg-[hsl(var(--card))] p-12 text-center">
+        <div className="rounded-xl border border-dashed border-[hsl(var(--border))] bg-[hsl(var(--card))] shadow-sm p-12 text-center">
           <FolderOpen className="mx-auto h-10 w-10 text-[hsl(var(--muted-foreground))]" />
           <p className="mt-4 text-[hsl(var(--muted-foreground))]">
             ยังไม่มี Catalog กด &quot;สร้างใหม่&quot; เพื่อเริ่มต้น
           </p>
         </div>
       ) : (
-        <div className="overflow-hidden rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))]">
+        <div className="overflow-hidden rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] shadow-sm">
           <table className="w-full text-left text-sm">
             <thead className="border-b border-[hsl(var(--border))] bg-[hsl(var(--muted))] text-[hsl(var(--muted-foreground))]">
               <tr>
@@ -358,7 +358,7 @@ export default function AdminCatalogsPage() {
 
       {deleteTarget ? (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
-          <div className="w-full max-w-sm rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-6">
+          <div className="w-full max-w-sm rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] shadow-sm p-6">
             <h3 className="text-lg font-semibold text-[hsl(var(--foreground))]">
               ยืนยันการลบ
             </h3>

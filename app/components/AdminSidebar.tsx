@@ -28,7 +28,7 @@ export default function AdminSidebar() {
   }
 
   return (
-    <aside className="flex h-full min-h-screen w-64 flex-col border-r border-[hsl(var(--border))] bg-[hsl(var(--card))]">
+    <aside className="flex h-full min-h-screen w-64 flex-col border-r border-[hsl(var(--border))] bg-[hsl(var(--card))] shadow-sm">
       <div className="border-b border-[hsl(var(--border))] p-5">
         <Link href="/admin" className="flex items-center gap-3">
           <span className="text-lg font-bold tracking-tight text-[hsl(var(--foreground))]">

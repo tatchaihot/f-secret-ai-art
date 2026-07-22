@@ -46,7 +46,7 @@ export default async function GalleryPage() {
       </div>
 
       {catalogs.length === 0 ? (
-        <div className="rounded-xl border border-dashed border-[hsl(var(--border))] bg-[hsl(var(--card))] p-12 text-center">
+        <div className="rounded-xl border border-dashed border-[hsl(var(--border))] bg-[hsl(var(--card))] shadow-sm p-12 text-center">
           <p className="text-[hsl(var(--muted-foreground))]">ยังไม่มีแคตตาล็อก</p>
         </div>
       ) : (
