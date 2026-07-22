@@ -299,17 +299,33 @@ export default function AdminUploadPage() {
 
       {files.length > 0 ? (
         <div className="space-y-4">
-          <div className="flex items-center justify-between">
-            <h2 className="text-base font-semibold text-[hsl(var(--foreground))]">
-              รูปที่เลือก ({files.length})
-            </h2>
-            <button
-              onClick={clearAll}
-              disabled={isUploading}
-              className="text-sm font-medium text-red-400 transition-colors hover:text-red-300 disabled:opacity-50"
-            >
-              ล้างทั้งหมด
-            </button>
+          <div className="sticky top-16 z-30 -mx-4 border-y border-[hsl(var(--border))] bg-[hsl(var(--card))]/95 px-4 py-3 shadow-sm backdrop-blur sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+            <div className="mx-auto flex max-w-4xl items-center justify-between gap-4">
+              <h2 className="text-base font-semibold text-[hsl(var(--foreground))]">
+                รูปที่เลือก ({files.length})
+              </h2>
+              <div className="flex items-center gap-3">
+                <button
+                  onClick={clearAll}
+                  disabled={isUploading}
+                  className="text-sm font-medium text-red-400 transition-colors hover:text-red-300 disabled:opacity-50"
+                >
+                  ล้างทั้งหมด
+                </button>
+                <button
+                  onClick={handleUpload}
+                  disabled={isUploading || !selectedCatalog}
+                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-[hsl(var(--primary))] px-4 py-2 text-sm font-semibold text-[hsl(var(--primary-foreground))] transition-all hover:bg-primary/90 disabled:opacity-50"
+                >
+                  {isUploading ? (
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                  ) : (
+                    <Upload className="h-4 w-4" />
+                  )}
+                  อัปโหลด {files.length} รูป
+                </button>
+              </div>
+            </div>
           </div>
 
           {isUploading ? (
@@ -380,19 +396,6 @@ export default function AdminUploadPage() {
               </div>
             ))}
           </div>
-
-          <button
-            onClick={handleUpload}
-            disabled={isUploading || !selectedCatalog}
-            className="flex w-full items-center justify-center gap-2 rounded-lg bg-[hsl(var(--primary))] px-4 py-3 text-sm font-semibold text-[hsl(var(--primary-foreground))] transition-all hover:bg-primary/90 disabled:opacity-50"
-          >
-            {isUploading ? (
-              <Loader2 className="h-4 w-4 animate-spin" />
-            ) : (
-              <Upload className="h-4 w-4" />
-            )}
-            อัปโหลด {files.length} รูป
-          </button>
         </div>
       ) : (
         <div className="rounded-xl border border-dashed border-[hsl(var(--border))] bg-[hsl(var(--card))] shadow-sm p-12 text-center">
