@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import ImageGrid from "@/app/components/ImageGrid";
+import FadeIn from "@/app/components/FadeIn";
 import { getBaseUrl } from "@/lib/api";
 
 export const dynamic = "force-dynamic";
@@ -70,24 +71,26 @@ export default async function CatalogDetailPage({
 
   return (
     <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-      <Link
-        href="/gallery"
-        className="mb-4 inline-flex items-center gap-2 text-sm font-medium text-[hsl(var(--muted-foreground))] transition-colors hover:text-[hsl(var(--foreground))]"
-      >
-        <ArrowLeft className="h-4 w-4" />
-        กลับไป Gallery
-      </Link>
+      <FadeIn>
+        <Link
+          href="/gallery"
+          className="mb-4 inline-flex items-center gap-2 text-sm font-medium text-[hsl(var(--muted-foreground))] transition-colors hover:text-[hsl(var(--foreground))]"
+        >
+          <ArrowLeft className="h-4 w-4" />
+          กลับไป Gallery
+        </Link>
 
-      <div className="mb-6">
-        <h1 className="text-2xl font-bold tracking-tight text-[hsl(var(--foreground))] sm:text-3xl">
-          {catalog.name}
-        </h1>
-        {catalog.description ? (
-          <p className="mt-2 text-sm text-[hsl(var(--muted-foreground))] sm:text-base">
-            {catalog.description}
-          </p>
-        ) : null}
-      </div>
+        <div className="mb-6">
+          <h1 className="text-2xl font-bold tracking-tight text-[hsl(var(--foreground))] sm:text-3xl">
+            {catalog.name}
+          </h1>
+          {catalog.description ? (
+            <p className="mt-2 text-sm text-[hsl(var(--muted-foreground))] sm:text-base">
+              {catalog.description}
+            </p>
+          ) : null}
+        </div>
+      </FadeIn>
 
       <ImageGrid images={catalog.images} />
     </main>

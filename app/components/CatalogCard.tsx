@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { ImageIcon } from "lucide-react";
 
 interface CatalogImage {
@@ -26,76 +27,83 @@ export default function CatalogCard({ catalog }: CatalogCardProps) {
   const imageCount = catalog._count.images;
 
   return (
-    <Link
-      href={`/gallery/${catalog.id}`}
-      className="group block overflow-hidden rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[hsl(var(--muted-foreground))] hover:shadow-lg hover:shadow-black/20"
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+      whileHover={{ y: -6 }}
     >
-      <div className="grid aspect-square grid-cols-2 gap-0.5 bg-[hsl(var(--border))]">
-        {previewImages.length > 0 ? (
-          previewImages.map((image, index) => (
-            <div
-              key={image.id}
-              className="relative overflow-hidden bg-[hsl(var(--card))] shadow-sm"
-            >
-              <img
-                src={image.thumbnailUrl || image.url}
-                alt={`${catalog.name} ${index + 1}`}
-                loading="lazy"
-                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-              />
+      <Link
+        href={`/gallery/${catalog.id}`}
+        className="group block overflow-hidden rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--card))] shadow-sm transition-all duration-300 hover:border-[hsl(var(--muted-foreground))] hover:shadow-lg hover:shadow-black/20"
+      >
+        <div className="grid aspect-square grid-cols-2 gap-0.5 bg-[hsl(var(--border))]">
+          {previewImages.length > 0 ? (
+            previewImages.map((image, index) => (
+              <div
+                key={image.id}
+                className="relative overflow-hidden bg-[hsl(var(--card))]"
+              >
+                <img
+                  src={image.thumbnailUrl || image.url}
+                  alt={`${catalog.name} ${index + 1}`}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                />
+              </div>
+            ))
+          ) : (
+            <div className="col-span-2 flex items-center justify-center bg-[hsl(var(--card))]">
+              <ImageIcon className="h-10 w-10 text-[hsl(var(--muted-foreground))]" />
             </div>
-          ))
-        ) : (
-          <div className="col-span-2 flex items-center justify-center bg-[hsl(var(--card))] shadow-sm">
-            <ImageIcon className="h-10 w-10 text-[hsl(var(--muted-foreground))]" />
-          </div>
-        )}
+          )}
 
-        {previewImages.length === 1 && (
-          <>
-            <div className="flex items-center justify-center bg-[hsl(var(--card))] shadow-sm">
-              <ImageIcon className="h-8 w-8 text-[hsl(var(--muted-foreground))]" />
-            </div>
-            <div className="flex items-center justify-center bg-[hsl(var(--card))] shadow-sm">
-              <ImageIcon className="h-8 w-8 text-[hsl(var(--muted-foreground))]" />
-            </div>
-            <div className="flex items-center justify-center bg-[hsl(var(--card))] shadow-sm">
-              <ImageIcon className="h-8 w-8 text-[hsl(var(--muted-foreground))]" />
-            </div>
-          </>
-        )}
+          {previewImages.length === 1 && (
+            <>
+              <div className="flex items-center justify-center bg-[hsl(var(--card))]">
+                <ImageIcon className="h-8 w-8 text-[hsl(var(--muted-foreground))]" />
+              </div>
+              <div className="flex items-center justify-center bg-[hsl(var(--card))]">
+                <ImageIcon className="h-8 w-8 text-[hsl(var(--muted-foreground))]" />
+              </div>
+              <div className="flex items-center justify-center bg-[hsl(var(--card))]">
+                <ImageIcon className="h-8 w-8 text-[hsl(var(--muted-foreground))]" />
+              </div>
+            </>
+          )}
 
-        {previewImages.length === 2 && (
-          <>
-            <div className="flex items-center justify-center bg-[hsl(var(--card))] shadow-sm">
+          {previewImages.length === 2 && (
+            <>
+              <div className="flex items-center justify-center bg-[hsl(var(--card))]">
+                <ImageIcon className="h-8 w-8 text-[hsl(var(--muted-foreground))]" />
+              </div>
+              <div className="flex items-center justify-center bg-[hsl(var(--card))]">
+                <ImageIcon className="h-8 w-8 text-[hsl(var(--muted-foreground))]" />
+              </div>
+            </>
+          )}
+
+          {previewImages.length === 3 && (
+            <div className="flex items-center justify-center bg-[hsl(var(--card))]">
               <ImageIcon className="h-8 w-8 text-[hsl(var(--muted-foreground))]" />
             </div>
-            <div className="flex items-center justify-center bg-[hsl(var(--card))] shadow-sm">
-              <ImageIcon className="h-8 w-8 text-[hsl(var(--muted-foreground))]" />
-            </div>
-          </>
-        )}
+          )}
+        </div>
 
-        {previewImages.length === 3 && (
-          <div className="flex items-center justify-center bg-[hsl(var(--card))] shadow-sm">
-            <ImageIcon className="h-8 w-8 text-[hsl(var(--muted-foreground))]" />
-          </div>
-        )}
-      </div>
-
-      <div className="p-4">
-        <h3 className="truncate text-base font-semibold text-[hsl(var(--foreground))]">
-          {catalog.name}
-        </h3>
-        {catalog.description ? (
-          <p className="mt-1 line-clamp-2 text-sm text-[hsl(var(--muted-foreground))]">
-            {catalog.description}
+        <div className="p-4">
+          <h3 className="truncate text-base font-semibold text-[hsl(var(--foreground))]">
+            {catalog.name}
+          </h3>
+          {catalog.description ? (
+            <p className="mt-1 line-clamp-2 text-sm text-[hsl(var(--muted-foreground))]">
+              {catalog.description}
+            </p>
+          ) : null}
+          <p className="mt-3 text-xs text-[hsl(var(--muted-foreground))]">
+            {imageCount} รูป
           </p>
-        ) : null}
-        <p className="mt-3 text-xs text-[hsl(var(--muted-foreground))]">
-          {imageCount} รูป
-        </p>
-      </div>
-    </Link>
+        </div>
+      </Link>
+    </motion.div>
   );
 }

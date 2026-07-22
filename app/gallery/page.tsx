@@ -1,4 +1,5 @@
 import CatalogCard from "@/app/components/CatalogCard";
+import FadeIn from "@/app/components/FadeIn";
 import { getBaseUrl } from "@/lib/api";
 
 export const dynamic = "force-dynamic";
@@ -36,17 +37,17 @@ export default async function GalleryPage() {
 
   return (
     <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-      <div className="mb-8">
+      <FadeIn className="mb-8">
         <h1 className="text-2xl font-bold tracking-tight text-[hsl(var(--foreground))] sm:text-3xl">
           Gallery
         </h1>
         <p className="mt-2 text-sm text-[hsl(var(--muted-foreground))] sm:text-base">
           ผลงานภาพ AI จาก F-Secret AI Art
         </p>
-      </div>
+      </FadeIn>
 
       {catalogs.length === 0 ? (
-        <div className="rounded-xl border border-dashed border-[hsl(var(--border))] bg-[hsl(var(--card))] shadow-sm p-12 text-center">
+        <div className="rounded-xl border border-dashed border-[hsl(var(--border))] bg-[hsl(var(--card))] p-12 text-center shadow-sm">
           <p className="text-[hsl(var(--muted-foreground))]">ยังไม่มีแคตตาล็อก</p>
         </div>
       ) : (

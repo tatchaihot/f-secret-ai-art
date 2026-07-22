@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback, useEffect } from "react";
+import { motion } from "framer-motion";
 import Lightbox from "./Lightbox";
 
 interface GridImage {
@@ -15,6 +16,30 @@ interface GridImage {
 interface ImageGridProps {
   images: GridImage[];
 }
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.06,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20, scale: 0.96 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.45,
+      ease: "easeOut" as const,
+    },
+  },
+};
 
 export default function ImageGrid({ images }: ImageGridProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
@@ -50,7 +75,7 @@ export default function ImageGrid({ images }: ImageGridProps) {
 
   if (images.length === 0) {
     return (
-      <div className="rounded-xl border border-dashed border-[hsl(var(--border))] bg-[hsl(var(--card))] shadow-sm p-12 text-center">
+      <div className="rounded-xl border border-dashed border-[hsl(var(--border))] bg-[hsl(var(--card))] p-12 text-center shadow-sm">
         <p className="text-[hsl(var(--muted-foreground))]">ยังไม่มีรูปภาพในแคตตาล็อกนี้</p>
       </div>
     );
@@ -58,22 +83,36 @@ export default function ImageGrid({ images }: ImageGridProps) {
 
   return (
     <>
-      <div className="grid grid-cols-2 gap-2 sm:gap-3 md:grid-cols-3 lg:grid-cols-4">
+      <motion.div
+        className="columns-2 gap-3 sm:columns-3 md:columns-4 lg:gap-4"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
         {images.map((image, index) => (
-          <button
+          <motion.button
             key={image.id}
+            variants={itemVariants}
             onClick={() => openLightbox(index)}
-            className="group relative aspect-square overflow-hidden rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--card))] shadow-sm text-left shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[hsl(var(--muted-foreground))] hover:shadow-md hover:shadow-black/20 focus:outline-none focus:ring-2 focus:ring-[hsl(var(--foreground))] focus:ring-offset-2 focus:ring-offset-[hsl(var(--background))]"
+            className="group relative mb-3 block w-full break-inside-avoid overflow-hidden rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--card))] text-left shadow-sm focus:outline-none focus:ring-2 focus:ring-[hsl(var(--foreground))] focus:ring-offset-2 focus:ring-offset-[hsl(var(--background))] lg:mb-4"
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
           >
             <img
               src={image.thumbnailUrl || image.url}
               alt={`รูปที่ ${index + 1}`}
               loading="lazy"
-              className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              className="h-auto w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
             />
-          </button>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+            <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <span className="rounded-full bg-black/40 px-3 py-1.5 text-xs font-medium text-white backdrop-blur-sm">
+                ดูรูปใหญ่
+              </span>
+            </div>
+          </motion.button>
         ))}
-      </div>
+      </motion.div>
 
       {selectedIndex !== null && (
         <Lightbox
