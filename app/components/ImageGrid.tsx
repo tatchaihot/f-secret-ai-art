@@ -17,30 +17,6 @@ interface ImageGridProps {
   images: GridImage[];
 }
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.06,
-      delayChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20, scale: 0.96 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: {
-      duration: 0.45,
-      ease: "easeOut" as const,
-    },
-  },
-};
-
 export default function ImageGrid({ images }: ImageGridProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
@@ -83,20 +59,14 @@ export default function ImageGrid({ images }: ImageGridProps) {
 
   return (
     <>
-      <motion.div
-        className="columns-2 gap-3 sm:columns-3 md:columns-4 lg:gap-4"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
+      <div className="columns-2 gap-3 sm:columns-3 md:columns-4 lg:gap-4">
         {images.map((image, index) => (
           <motion.button
             key={image.id}
-            variants={itemVariants}
             onClick={() => openLightbox(index)}
             className="group relative mb-3 block w-full break-inside-avoid overflow-hidden rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--card))] text-left shadow-sm focus:outline-none focus:ring-2 focus:ring-[hsl(var(--foreground))] focus:ring-offset-2 focus:ring-offset-[hsl(var(--background))] lg:mb-4"
             whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
           >
             <img
               src={image.thumbnailUrl || image.url}
@@ -112,7 +82,7 @@ export default function ImageGrid({ images }: ImageGridProps) {
             </div>
           </motion.button>
         ))}
-      </motion.div>
+      </div>
 
       {selectedIndex !== null && (
         <Lightbox

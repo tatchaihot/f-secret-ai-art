@@ -2,6 +2,7 @@
 
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface LightboxImage {
   id: string;
@@ -19,6 +20,11 @@ interface LightboxProps {
   onNext: () => void;
 }
 
+const swipeConfidenceThreshold = 10000;
+const swipePower = (offset: number, velocity: number) => {
+  return Math.abs(offset) * velocity;
+};
+
 export default function Lightbox({
   images,
   currentIndex,
@@ -34,6 +40,19 @@ export default function Lightbox({
       document.body.style.overflow = "";
     };
   }, []);
+
+  function handleDragEnd(
+    _e: MouseEvent | TouchEvent | PointerEvent,
+    { offset, velocity }: { offset: { x: number; y: number }; velocity: { x: number; y: number } }
+  ) {
+    const swipe = swipePower(offset.x, velocity.x);
+
+    if (swipe < -swipeConfidenceThreshold) {
+      onNext();
+    } else if (swipe > swipeConfidenceThreshold) {
+      onPrev();
+    }
+  }
 
   return (
     <div
@@ -85,11 +104,22 @@ export default function Lightbox({
         className="relative max-h-[85vh] max-w-[90vw]"
         onClick={(e) => e.stopPropagation()}
       >
-        <img
-          src={currentImage.url}
-          alt={`รูปที่ ${currentIndex + 1}`}
-          className="max-h-[85vh] max-w-[90vw] rounded-md object-contain"
-        />
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.img
+            key={currentImage.id}
+            src={currentImage.url}
+            alt={`รูปที่ ${currentIndex + 1}`}
+            className="max-h-[85vh] max-w-[90vw] rounded-md object-contain"
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.2}
+            onDragEnd={handleDragEnd}
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -100 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+          />
+        </AnimatePresence>
         <div className="absolute -bottom-8 left-0 right-0 text-center text-sm text-[hsl(var(--muted-foreground))]">
           {currentIndex + 1} / {images.length}
         </div>
