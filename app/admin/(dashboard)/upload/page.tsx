@@ -125,7 +125,7 @@ export default function AdminUploadPage() {
     const pendingFiles = files.filter((f) => f.status !== "done");
     let completed = 0;
 
-    await Promise.all(
+    const uploadResults = await Promise.all(
       pendingFiles.map(async (filePreview) => {
         setFiles((prev) =>
           prev.map((f) =>
@@ -153,6 +153,7 @@ export default function AdminUploadPage() {
               f.id === filePreview.id ? { ...f, status: "done" } : f
             )
           );
+          return { status: "done" as const };
         } catch (err) {
           setFiles((prev) =>
             prev.map((f) =>
@@ -165,6 +166,7 @@ export default function AdminUploadPage() {
                 : f
             )
           );
+          return { status: "error" as const };
         } finally {
           completed++;
           setOverallProgress(Math.round((completed / pendingFiles.length) * 100));
@@ -174,8 +176,8 @@ export default function AdminUploadPage() {
 
     setIsUploading(false);
 
-    const failedCount = files.filter((f) => f.status === "error").length;
-    const successCount = files.filter((f) => f.status === "done").length;
+    const successCount = uploadResults.filter((r) => r.status === "done").length;
+    const failedCount = uploadResults.filter((r) => r.status === "error").length;
 
     if (failedCount === 0 && successCount > 0) {
       setSuccess(`อัปโหลดสำเร็จ ${successCount} รูป กำลังเปลี่ยนหน้า...`);
