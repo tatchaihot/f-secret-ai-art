@@ -1,0 +1,47 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Catalog {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  images      Image[]
+
+  @@index([sortOrder])
+}
+
+model Image {
+  id           String   @id @default(cuid())
+  publicId     String   @unique
+  url          String
+  thumbnailUrl String
+  width        Int?
+  height       Int?
+  sortOrder    Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  catalogId    String
+  catalog      Catalog  @relation(fields: [catalogId], references: [id], onDelete: Cascade)
+
+  @@index([catalogId])
+  @@index([sortOrder])
+}
+
+model SiteSetting {
+  id          String   @id @default("default")
+  title       String   @default("F-Secret AI Art")
+  description String   @default("รับสร้างภาพ AI คุณภาพสูง")
+  lineId      String   @default("tatchaihot")
+  lineQrUrl   String?
+  logoUrl     String?
+  updatedAt   DateTime @updatedAt
+}
