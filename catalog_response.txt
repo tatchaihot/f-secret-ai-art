@@ -1,1 +1,0 @@
-{"id":"cmrvw1uk30018ejgdefus9m3u","name":"Test Catalog","description":null,"sortOrder":0,"createdAt":"2026-07-22T09:36:57.696Z","updatedAt":"2026-07-22T09:36:57.696Z"}
