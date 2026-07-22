@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useCallback, useEffect } from "react";
-import { motion } from "framer-motion";
 import Lightbox from "./Lightbox";
 
 interface GridImage {
@@ -61,12 +60,10 @@ export default function ImageGrid({ images }: ImageGridProps) {
     <>
       <div className="columns-2 gap-3 sm:columns-3 md:columns-4 lg:gap-4">
         {images.map((image, index) => (
-          <motion.button
+          <button
             key={image.id}
             onClick={() => openLightbox(index)}
-            className="group relative mb-3 block w-full break-inside-avoid overflow-hidden rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--card))] text-left shadow-sm focus:outline-none focus:ring-2 focus:ring-[hsl(var(--foreground))] focus:ring-offset-2 focus:ring-offset-[hsl(var(--background))] lg:mb-4"
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="group relative mb-3 block w-full break-inside-avoid overflow-hidden rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--card))] text-left shadow-sm transition-transform duration-300 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-[hsl(var(--foreground))] focus:ring-offset-2 focus:ring-offset-[hsl(var(--background))] lg:mb-4"
           >
             <img
               src={image.thumbnailUrl || image.url}
@@ -80,7 +77,7 @@ export default function ImageGrid({ images }: ImageGridProps) {
                 ดูรูปใหญ่
               </span>
             </div>
-          </motion.button>
+          </button>
         ))}
       </div>
 
